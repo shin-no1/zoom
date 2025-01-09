@@ -18,3 +18,11 @@ Zoom Clone using NodeJS, WebRTC and Websockets.
   - 최신 JavaScript 문법을 트랜스파일하여 호환성을 보장
   - 구형 브라우저나 Node.js 환경에서도 최신 코드를 실행 가능하도록 변환
   - 개발자 친화적인 문법 사용 가능 (import/export, 화살표 함수 등)
+---
+- HTTP And WebSocket
+  - HTTP (stateless)
+    - browser(request) -> server(response) -> server는 유저를 잊음
+    - server는 request 받을 때에만 response를 해줌
+  - WebSocket (bidirectional)
+    - browser(request) -> server(accpet) -> connected(연결되어 있기 때문에 유저를 알고 있음)
+    - 이후 request, response 과정이 필요하지 않고 그저 발생함 (server <-> browser)
