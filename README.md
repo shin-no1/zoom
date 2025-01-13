@@ -26,3 +26,19 @@ Zoom Clone using NodeJS, WebRTC and Websockets.
   - WebSocket (bidirectional)
     - browser(request) -> server(accpet) -> connected(연결되어 있기 때문에 유저를 알고 있음)
     - 이후 request, response 과정이 필요하지 않고 그저 발생함 (server <-> browser)
+---
+- Socket.IO
+  - WebSocket을 구현한 것이 아닌, 별도의 JavaScript 라이브러리
+  - 백/프론트 간단하게 연결
+    ```javascript
+    // server.js
+    import SocketIo from 'socket.io'
+    const httpServer = http.createServer(app);
+    const wsServer = SocketIo(httpServer);
+    // app.js
+    const socket = io();
+    // home.pug
+    script(src="/socket.io/socket.io.js")
+    ```
+  - WebSocket과 달리 String 뿐만 아니라, 다양한 값/여러 값 전달 가능 (Integer, Json, Function...)
+  - 원하는 키값 사용 가능 `front: socket.emit("key", ""), back: socket.on("key", "")`
