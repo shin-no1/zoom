@@ -52,12 +52,16 @@ function handleRoomSubmit(event) {
 
 form.addEventListener("submit", handleRoomSubmit);
 
-socket.on("welcome", (user) => {
+socket.on("welcome", (user, newCount) => {
+    const h3 = room.querySelector("h3");
+    h3.innerHTML = `Room ${roomName} (${newCount})`;
     addMessage(`${user} arrived!`);
 });
 
-socket.on("bye", (user) => {
-   addMessage(`${user} left...`);
+socket.on("bye", (user, newCount) => {
+    const h3 = room.querySelector("h3");
+    h3.innerHTML = `Room ${roomName} (${newCount})`;
+    addMessage(`${user} left...`);
 });
 
 socket.on("new_message", addMessage);
@@ -69,8 +73,8 @@ socket.on("room_change", (rooms) => {
         return;
     }
     rooms.forEach((room) => {
-       const li = document.createElement("li");
-       li.innerText = room;
-       roomList.append(li);
+        const li = document.createElement("li");
+        li.innerText = room;
+        roomList.append(li);
     });
 });
