@@ -41,4 +41,5 @@ Zoom Clone using NodeJS, WebRTC and Websockets.
     script(src="/socket.io/socket.io.js")
     ```
   - WebSocket과 달리 String 뿐만 아니라, 다양한 값/여러 값 전달 가능 (Integer, Json, Function...)
+    - Function은 백엔드 실행 X, 프론트 실행 => 프론트의 함수 실행 버튼을 눌러준다고 생각하면 됨
   - 원하는 키값 사용 가능 `front: socket.emit("key", ""), back: socket.on("key", "")`
